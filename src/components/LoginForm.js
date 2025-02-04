@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import "./LoginPage.css";
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import '../styles/LoginForm.css';
 
-const LoginPage = () => {
+const LoginForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const { login } = useContext(AuthContext);
@@ -43,4 +43,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginForm;

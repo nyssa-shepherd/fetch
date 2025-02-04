@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import { AuthProvider } from "./context/AuthContext";
-import LoginPage from "./Login/LoginPage";
-// import SearchPage from "./Search/SearchPage";
+import DogList from "./components/DogList";
+import LoginForm from "./components/LoginForm";
 import "./App.css";
 
 function App() {
@@ -11,8 +10,8 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
-          {/* <Route path="/search" element={<SearchPage />} /> */}
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/search" element={<DogList />} />
         </Routes>
       </Router>
     </AuthProvider>
