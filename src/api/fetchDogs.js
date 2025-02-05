@@ -19,7 +19,7 @@ const api = axios.create({
  */
 export const loginUser = async (name, email) => {
   try {
-    await api.post('/auth/login', { name, email });
+    await axios.post(`${API_BASE_URL}/auth/login`, { name, email });
     return true;
   } catch (error) {
     console.error('Login failed:', error.response?.data || error.message);

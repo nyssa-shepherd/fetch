@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from 'react';
-import Modal from 'react-modal';
 import { fetchDogIds, fetchBreeds, getMatch, fetchDogs } from '../api/fetchDogs';
 import { AuthContext } from '../context/AuthContext';
 import DogItem from './DogItem';
@@ -7,7 +6,7 @@ import Favorites from './Favorites';
 import MatchModal from './MatchModal';
 import Pagination from './Pagination';
 import Tabs from './Tabs';
-import "../styles/DogList.css";
+import '../styles/DogList.css';
 
 const DogList = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -66,7 +65,7 @@ const DogList = () => {
 
   return (
     <div className="dog-list">
-      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} favorites={favorites.length}/>
+      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} favorites={favorites}/>
       {activeTab === 'list' && (
         <>
           <h2>Search Dogs</h2>
@@ -78,7 +77,6 @@ const DogList = () => {
               </option>
             ))}
           </select>
-
           <div className="dog-items">
             {dogs.map((dog) => (
               <DogItem key={dog.id} dog={dog} toggleFavorite={toggleFavorite} />

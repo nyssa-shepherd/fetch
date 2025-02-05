@@ -1,19 +1,22 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { loginUser } from '../api/fetchDogs';
 import '../styles/LoginForm.css';
 
 const LoginForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const { login } = useContext(AuthContext);
+  const { setIsAuthenticated  } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login(name, email);
-    if (success) {
+    const loginSuccess = await loginUser(name, email);
+
+    if (loginSuccess) {
       navigate("/search");
+      setIsAuthenticated(true);
     } else {
       alert("Login failed. Please try again.");
     }
