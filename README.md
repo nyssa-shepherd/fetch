@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Dog Finder App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+- **Login Screen**: Users enter their name and email to authenticate and begin searching for dogs.
+- **Dog Search**: Users can filter available dogs by breed and view details such as breed, age, and location.
+- **Favorites**: Users can mark their favorite dogs and view them in a separate tab.
+- **Match**: After selecting favorites, users can click the **"View Match"** button to find a dog match, displayed in a modal.
 
-## Available Scripts
+## Technologies Used
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: For navigation between pages and tabs.
+- **Axios**: For API calls to Fetch's backend.
+- **React Modal**: For displaying the dog match in a modal window.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+### Prerequisites
+Before starting, ensure you have the following installed:
+- Node.js (v14 or above)
+- npm or yarn
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository:
+  
+   ```
+   git clone https://github.com/your-username/dog-adoption-app.git
+   cd dog-adoption-app
+   ```
 
-### `npm test`
+3. Install the dependencies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm install
+```
 
-### `npm run build`
+3. Start the development server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm start
+```
+The app should now be running on http://localhost:3000.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Project Structure
+```
+/src
+  /components
+    AuthForm.js        // Login Form
+    DogList.js         // Dog search and favorites
+    DogItem.js         // Dog details card
+    MatchModal.js      // Modal for showing match
+    Pagination.js      // Pagination component
+  /api
+    fetchDogs.js       // API functions for interacting with Fetch API
+  /styles
+    App.css            // Global styles
+    DogList.css        // DogList page styles
+    Favorites.css      // Favorites tab styles
+    MatchModal.css     // Modal styling
+  App.js               // Main component that sets up routing and app structure
+  index.js             // Entry point for React
+  .eslintrc.json       // ESLint configuration
+  .prettierrc          // Prettier configuration
+  package.json         // Project dependencies and scripts
+  README.md            // Project documentation
+```
 
-### `npm run eject`
+### How to Use
+- Login: On the login screen, enter your name and email to authenticate. After authentication, you'll be redirected to the search page.
+- Search Dogs: Use the Search Dogs tab to browse available dogs. You can filter by breed and view details.
+- Favorites: Mark your favorite dogs by clicking the Add to Favorites button. The Favorites tab will show a list of all your favorite dogs.
+- View Match: After selecting some favorite dogs, click the View Match button to see a randomly matched dog. The match will appear in a modal.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Improvements to Consider if Given More Time
+If I had more time to complete this project, I would consider implementing the following improvements:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Additional filters: Enable filtering by age, size, or other dog attributes.
+- Add more robust error handling and loading states when fetching data from the API. Display user-friendly messages if the API request fails or is loading.
+- Show proper empty state messages if there are no dogs available or no favorites selected.
+- Instead of managing favorites state directly in the DogList component, use React Context or a state management library like Redux to manage global state across components (favorites, user info, etc.).
+- Implement lazy loading or code splitting for better performance when loading large sets of dog data.
+Consider using memoization techniques or the React Suspense API for async data fetching and caching.
+- Improve accessibility (a11y) by ensuring the app works with screen readers and adding ARIA roles to components for better navigation.
+- Use keyboard navigation for modal interaction (i.e., close modal with Esc key, navigate buttons with arrow keys).
+- Add unit tests for individual components (like DogItem, MatchModal) using a testing library like Jest and React Testing Library.
+- Implement end-to-end tests with Cypress or Puppeteer to test user flows like login, search, and viewing matches.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
